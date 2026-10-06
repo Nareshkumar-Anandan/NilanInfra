@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #ea580c; /* Vibrant Orange */
+  --primary-light: #fb923c; 
+  --primary-dark: #c2410c; 
+  --secondary: #431407; /* Very Dark Orange/Brown for contrast */
+  --accent: #f97316; 
+  --sunset: #ff4e50; 
+  --dark: #121212; 
+  --light: #ffffff;
+  --cream: #faf9f6; 
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(234, 88, 12, 0.2);
+  
+  --gradient-ocean: linear-gradient(135deg, var(--primary), var(--secondary));
+  --gradient-gold: linear-gradient(135deg, #ea580c, #fb923c);
+  --gradient-dark: linear-gradient(135deg, #121212, #2c2c2c);
+  
+  --font-main: 'Poppins', sans-serif;
+  --font-heading: 'Cinzel', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.premium-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.premium-title::before,
+.premium-title::after {
+  content: '';
+  height: 1.5px;
+  background: var(--primary-light);
+  flex-grow: 0;
+  width: 100px;
+  opacity: 0.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-ocean);
+  border-radius: 5px;
+}
+
+.glass-effect {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+.btn-premium {
+  padding: 0.8rem 2rem;
+  background: var(--gradient-ocean);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+  .premium-title,
+  .section-header h2 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: 1px !important;
+  }
+
+  .premium-title {
+    display: block !important;
+    text-align: center;
+  }
+  
+  .premium-title::before,
+  .premium-title::after {
+    display: none !important;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem !important;
+  }
+
+  .why-us,
+  .experiences-hero {
+    padding: 2.5rem 5% !important;
+  }
+}

@@ -30,16 +30,16 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Simulate successful frontend query submission
     alert('Thank you! Your construction enquiry has been submitted. Our engineering estimators will contact you shortly.');
 
     // Format mailto body for email redirection fallback
     const subject = `New Infrastructure Inquiry from ${formData.name}`;
     const body = `Name: ${formData.name}%0D%0APhone: ${formData.phone}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AQuery/Requirements:%0D%0A${formData.query}`;
-    
+
     window.location.href = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
-    
+
     // Resetting form
     setFormData({ name: '', phone: '', email: '', query: '' });
   };
@@ -54,7 +54,7 @@ const Contact = () => {
           <div className="hero-overlay"></div>
         </div>
         <div className="contact-hero-content">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -76,9 +76,9 @@ const Contact = () => {
       <section className="contact-section section-padding">
         <div className="container">
           <div className="contact-grid">
-            
+
             {/* Left Info Column */}
-            <motion.div 
+            <motion.div
               className="contact-info-column"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -87,7 +87,7 @@ const Contact = () => {
             >
               <h2 className="section-title">Get In <span>Touch</span></h2>
               <p className="panel-desc">We are here to answer all your building and civil infrastructure queries.</p>
-              
+
               <div className="info-cards">
                 <div className="info-card">
                   <div className="icon">
@@ -123,7 +123,7 @@ const Contact = () => {
             </motion.div>
 
             {/* Right Form Panel */}
-            <motion.div 
+            <motion.div
               className="enquiry-form-panel glass-effect"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -132,52 +132,52 @@ const Contact = () => {
             >
               <div className="form-container">
                 <h3>Send An <span>Enquiry</span></h3>
-                
+
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label>Name</label>
-                    <input 
-                      type="text" 
-                      name="name" 
-                      placeholder="Your Full Name" 
-                      value={formData.name} 
-                      onChange={handleChange} 
-                      required 
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your Full Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
-                  
+
                   <div className="form-group">
                     <label>Phone Number</label>
-                    <input 
-                      type="tel" 
-                      name="phone" 
-                      placeholder="Mobile Number" 
-                      value={formData.phone} 
-                      onChange={handleChange} 
-                      required 
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Mobile Number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
 
                   <div className="form-group">
                     <label>Email Address</label>
-                    <input 
-                      type="email" 
-                      name="email" 
-                      placeholder="Email Address" 
-                      value={formData.email} 
-                      onChange={handleChange} 
-                      required 
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email Address"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
 
                   <div className="form-group">
                     <label>Query / Requirements</label>
-                    <textarea 
-                      name="query" 
-                      rows="5" 
-                      placeholder="Tell us about your project requirements (e.g. villa construction, commercial estimate)..." 
-                      value={formData.query} 
-                      onChange={handleChange} 
+                    <textarea
+                      name="query"
+                      rows="5"
+                      placeholder="Tell us about your project requirements (e.g. villa construction, commercial estimate)..."
+                      value={formData.query}
+                      onChange={handleChange}
                       required
                     ></textarea>
                   </div>
@@ -196,13 +196,13 @@ const Contact = () => {
       {/* Embedded Location Map */}
       <section className="map-section container">
         <div className="map-container">
-          <iframe 
-            src={contactInfo.map_url} 
-            width="100%" 
-            height="450" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
-            loading="lazy" 
+          <iframe
+            src={contactInfo.map_url}
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
             title="Nilan Infra Location Map"
           ></iframe>
         </div>

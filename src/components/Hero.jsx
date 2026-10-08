@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import heroImg from '../assets/nilan_hero.png';
+import heroImg from '../assets/hero-Image.jpg';
 import residentialImg from '../assets/nilan_residential.png';
 import infrastructureImg from '../assets/nilan_infrastructure.png';
 import './Hero.css';
@@ -12,24 +12,24 @@ const Hero = () => {
   const slides = [
     {
       id: 0,
-      title: 'NILAN INFRA',
-      subtitle: 'Building the Future',
+      title: 'QUALITY CONSTRUCTION',
+      subtitle: 'NILAN INFRA',
       src: heroImg,
-      description: 'Premier construction, civil engineering, and infrastructure development solutions.'
+      description: 'We build durable homes, villas, commercial spaces, and infrastructure with attention to quality and detail.'
     },
     {
       id: 1,
-      title: 'COMMERCIAL COMPLEXES',
-      subtitle: 'Precision & Excellence',
+      title: 'TRANSPARENT PROCESS',
+      subtitle: 'CLEAR COMMUNICATION',
       src: infrastructureImg,
-      description: 'Engineered commercial spaces and civil works built to last for generations.'
+      description: 'Stay informed throughout every stage with clear communication, planning, and project updates.'
     },
     {
       id: 2,
-      title: 'RESIDENTIAL VILLAS',
-      subtitle: 'Aesthetic Living Spaces',
+      title: 'FROM IDEA TO REALITY',
+      subtitle: 'TURNKEY SOLUTIONS',
       src: residentialImg,
-      description: 'Luxurious apartments, villas, and custom-designed individual houses.'
+      description: 'Whether you have a plot, a plan, or just an idea, we turn your vision into a completed project.'
     }
   ];
 
@@ -44,9 +44,9 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide]);
 
   return (
     <section className="hero" id="home">
@@ -57,7 +57,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.0, ease: "easeInOut" }}
         >
           <div className="hero-image-wrapper">
             <img
@@ -90,9 +90,14 @@ const Hero = () => {
                 className="slide-details"
               >
                 <p>{slides[currentSlide].description}</p>
-                <button className="slide-btn" onClick={() => window.location.href = '/services'}>
-                  EXPLORE OUR SERVICES
-                </button>
+                <div className="hero-btn-group">
+                  <button className="slide-btn" onClick={() => window.location.href = '/services'}>
+                    EXPLORE OUR SERVICES
+                  </button>
+                  <button className="slide-btn slide-btn-primary" onClick={() => window.location.href = '/contact'}>
+                    GET FREE CONSULTATION
+                  </button>
+                </div>
               </motion.div>
             </div>
           </div>

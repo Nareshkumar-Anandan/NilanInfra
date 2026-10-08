@@ -41,17 +41,15 @@
 
 .logo img {
   height: 90px;
-  /* Increased for premium brand presence */
   width: auto;
   object-fit: contain;
-
+  filter: brightness(0) invert(1);
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled .logo img {
   height: 80px;
   filter: none;
-  /* Original theme color when scrolled over white */
 }
 
 .nav-menu.desktop {

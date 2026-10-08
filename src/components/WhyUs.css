@@ -1,54 +1,57 @@
 .why-us {
-  padding: 04rem 5%;
+  padding: 2.2rem 5% 4rem 5%;
   background: var(--cream);
   color: var(--dark);
   text-align: center;
 }
 
-.section-header {
-  margin-bottom: 5rem;
+.why-us .section-header {
+  margin-bottom: 2rem;
 }
 
-.section-header h4 {
+.why-us .section-header h4 {
   color: var(--primary);
   letter-spacing: 5px;
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.section-header h2 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
+.why-us .section-header h2,
+.why-us .premium-title {
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.85rem;
+  color: var(--secondary, #431407);
 }
 
-.section-header h2 span {
+.why-us .section-header h2 span {
   background: var(--gradient-ocean);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section-header p {
+.why-us .section-header p {
   color: rgba(0, 0, 0, 0.6);
   max-width: 600px;
   margin: 0 auto;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  max-width: 1440px;
+  gap: 2rem;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 .feature-card {
   position: relative;
   background: var(--light);
-  border: 1px solid rgba(174, 142, 70, 0.1);
-  border-radius: 4px; /* Sharper corners for luxury */
-  padding: 3.5rem 2.5rem;
+  border: 1px solid rgba(174, 142, 70, 0.12);
+  border-radius: 6px;
+  padding: 2.8rem 2.2rem;
   text-align: left;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,14 +65,14 @@
 }
 
 .feature-icon {
-  width: 80px;
-  height: 80px;
-  background: rgba(0, 210, 255, 0.1);
-  border-radius: 20px;
+  width: 70px;
+  height: 70px;
+  background: rgba(234, 88, 12, 0.1);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--primary);
   transition: all 0.4s ease;
 }
@@ -81,16 +84,18 @@
 }
 
 .feature-card h3 {
-  font-size: 1.4rem;
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+  color: var(--secondary, #431407);
 }
 
 .feature-card p {
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.7;
-  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.65;
+  font-size: 0.95rem;
 }
 
 .card-shine {

@@ -1,39 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Zap, Heart, Star, Users, Award } from 'lucide-react';
+import { ShieldCheck, MessageSquareQuote, Clock, Users, Gem, BadgeCheck } from 'lucide-react';
 import './WhyUs.css';
 
 const WhyUs = () => {
   const features = [
     {
-      icon: <ShieldCheck size={40} />,
-      title: 'SAFETY FIRST',
-      description: 'Strict adherence to national building safety codes and construction standards.'
+      icon: <ShieldCheck size={36} />,
+      title: 'Good Quality',
+      description: 'We check the materials and the work at every stage, not only at the end.'
     },
     {
-      icon: <Zap size={40} />,
-      title: 'EFFICIENT PLANNING',
-      description: 'Smart layouts, cost optimization, and energy-efficient building strategies.'
+      icon: <MessageSquareQuote size={36} />,
+      title: 'Honest Talk',
+      description: 'You get clear plans and true updates. You will not have to guess about cost or progress.'
     },
     {
-      icon: <Users size={40} />,
-      title: 'EXPERT ENGINEERS',
-      description: 'Highly skilled architects, structural consultants, and project coordinators.'
+      icon: <Clock size={36} />,
+      title: 'Work On Time',
+      description: 'We plan carefully and give a realistic time.'
     },
     {
-      icon: <Heart size={40} />,
-      title: 'CUSTOM DESIGNS',
-      description: 'Translating your visions into custom-tailored residential and office designs.'
+      icon: <Users size={36} />,
+      title: 'Skilled Team',
+      description: 'Our supervisors and workers follow the plan on every job.'
     },
     {
-      icon: <Star size={40} />,
-      title: 'PREMIUM QUALITY',
-      description: 'Using high-grade structural steel, cement, and premium finishing materials.'
+      icon: <Gem size={36} />,
+      title: 'Lasting Value',
+      description: 'We build for comfort, use and strength for many years.'
     },
     {
-      icon: <Award size={40} />,
-      title: 'TIMELY COMPLETION',
-      description: 'Proven track record of completing projects on or before the committed date.'
+      icon: <BadgeCheck size={36} />,
+      title: 'Clear Pricing',
+      description: 'Accurate cost estimation with zero hidden charges or surprise overheads from day one.'
     }
   ];
 
@@ -55,9 +55,9 @@ const WhyUs = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="premium-title"
         >
-          Why Choose <span>Nilan Infra?</span>
+          Why People <span>Choose Us</span>
         </motion.h2>
-        <p>Discover our commitment to quality, structural integrity, and architectural excellence.</p>
+        <p>Discover our commitment to quality, structural integrity, and long-lasting value.</p>
       </div>
 
       <div className="features-grid">

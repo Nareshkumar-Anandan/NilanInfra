@@ -45,8 +45,9 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 100%;
+  font-size: 2.1rem;
 }
 
 .premium-title::before,
@@ -55,7 +56,7 @@ h1, h2, h3, h4 {
   height: 1.5px;
   background: var(--primary-light);
   flex-grow: 0;
-  width: 100px;
+  width: 60px;
   opacity: 0.6;
 }
 

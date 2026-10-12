@@ -2,18 +2,17 @@
   padding-top: 0;
 }
 
-/* Services Hero */
+/* Services Hero - Matching About Us Hero Luxury Design */
 .services-hero {
   position: relative;
-  height: 60vh;
-  width: 100%;
+  min-height: 65vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   text-align: center;
-  color: white;
-
+  color: #ffffff;
+  padding: 8rem 5% 5rem 5%;
 }
 
 .services-hero-bg {
@@ -22,255 +21,416 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 1;
 }
 
 .services-hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.45);
 }
 
-.services-hero-content h4 {
-  color: var(--primary-light);
-  letter-spacing: 5px;
+.services-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.5) 50%, rgba(10, 10, 10, 0.85) 100%);
+}
+
+.services-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services-hero-tag {
+  display: inline-block;
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fbd38d;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
-.services-hero-content h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: 4px;
+.services-hero-title {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.services-hero-content p {
-  font-size: 1.2rem;
-  letter-spacing: 3px;
-  color: #f1f5f9;
-  font-weight: 500;
+.services-hero-subtitle {
+  font-family: var(--font-main, 'Poppins', sans-serif);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #e5e5e5;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-page .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Services Grid */
 .services-list {
-  background-color: #f8fafc;
+  background-color: #fdfbf7;
+  padding: 5.5rem 0 6.5rem 0;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+  align-items: stretch;
 }
 
 .service-card-premium {
-  background: white;
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.service-card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(234, 88, 12, 0.12);
+  border-color: rgba(234, 88, 12, 0.3);
 }
 
 .service-card-image {
   position: relative;
-  height: 250px;
+  height: 230px;
   width: 100%;
+  overflow: hidden;
+  background: #1a1a1a;
 }
 
 .service-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-icon-floating {
+.service-card-premium:hover .service-card-image img {
+  transform: scale(1.08);
+}
+
+/* Luxury Icon Badge inside Image (Top Right) */
+.service-card-badge {
   position: absolute;
-  bottom: -25px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background: var(--primary);
-  color: white;
-  border-radius: 12px;
+  top: 16px;
+  right: 16px;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: rgba(18, 19, 21, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 20px rgba(var(--primary-rgb), 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.35s ease;
   z-index: 2;
 }
 
-.service-card-premium:hover img {
-  transform: scale(1.1);
+.service-card-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
+.service-card-premium:hover .service-card-badge {
+  background: var(--primary, #ea580c);
+  border-color: var(--primary, #ea580c);
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.4);
 }
 
 .service-card-info {
-  padding: 40px 30px 30px;
+  padding: 2rem 1.8rem 1.8rem 1.8rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  background: #ffffff;
 }
 
 .service-subtitle {
-  color: var(--primary);
-  font-size: 0.8rem;
+  display: block;
+  color: var(--primary, #ea580c);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading, 'Cinzel', serif);
 }
 
 .service-card-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.25;
+  color: var(--secondary, #431407);
+  margin: 0 0 0.9rem 0;
+  min-height: 3.4rem;
+  display: flex;
+  align-items: center;
 }
 
 .service-card-info p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--dark-light);
-  margin-bottom: 25px;
+  font-family: var(--font-main, 'Poppins', sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #555555;
+  margin: 0 0 1.6rem 0;
   flex: 1;
 }
 
 .service-link {
-  background: none;
-  border: none;
-  color: var(--primary-dark);
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  transition: gap 0.3s ease;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--primary, #ea580c);
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  margin-top: auto;
 }
 
 .service-link:hover {
-  gap: 15px;
-  color: var(--primary);
+  color: var(--primary-dark, #c2410c);
+  gap: 12px;
 }
 
-/* Call to Action */
-.cta-glass-card {
-  text-align: center;
-  padding: 40px 40px;
-  background: rgba(15, 23, 42, 0.95);
-  color: white;
-  border-radius: 30px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+/* Luxury Split Action / CTA Section */
+.services-luxury-action-section {
+  padding: 4.5rem 0 5.5rem 0;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.cta-glass-card h2 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.cta-glass-card h2 span {
-  color: var(--primary-light);
-}
-
-.cta-glass-card p {
-  font-size: 1.2rem;
-  color: #94a3b8;
-  margin-bottom: 3rem;
-}
-
-.cta-actions {
+.services-luxury-action-section .luxury-action-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
 }
 
-.btn-secondary {
-  padding: 18px 40px;
-  border-radius: 30px;
+.services-luxury-action-section .luxury-action-title-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  flex: 1.1;
+  min-width: 320px;
+}
+
+.services-luxury-action-section .luxury-action-dash {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 2.2rem;
+  color: #888888;
+  line-height: 1;
+  margin-top: 2px;
+  letter-spacing: -2px;
+}
+
+.services-luxury-action-section .luxury-action-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-luxury-action-section .luxury-action-titles h2 {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 2.1rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: var(--secondary, #431407);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.services-luxury-action-section .luxury-action-titles h3 {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 2.35rem;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: var(--secondary, #431407);
+  line-height: 1.15;
+  margin: 0.2rem 0 0 0;
+}
+
+.services-luxury-action-section .luxury-action-content-block {
+  flex: 1;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.services-luxury-action-section .luxury-action-content-block p {
+  font-family: var(--font-main, 'Poppins', sans-serif);
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.75;
+  margin: 0 0 1.6rem 0;
+}
+
+.services-luxury-action-section .luxury-action-link {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
+  letter-spacing: 2.5px;
+  color: var(--primary, #ea580c);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   transition: all 0.3s ease;
-  background: transparent;
-  border: 1px solid white;
-  color: white;
+  text-transform: uppercase;
 }
 
-.btn-secondary:hover {
-  background: white;
-  color: var(--dark);
+.services-luxury-action-section .luxury-action-link .action-arrow {
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.services-luxury-action-section .luxury-action-link:hover {
+  color: var(--primary-dark, #c2410c);
+  gap: 0.8rem;
+}
+
+.services-luxury-action-section .luxury-action-link:hover .action-arrow {
+  transform: translateX(4px);
 }
 
 @media (max-width: 992px) {
   .services-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .services-luxury-action-section .luxury-action-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .services-luxury-action-section .luxury-action-content-block {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
-  .services-hero-content h1 {
-    font-size: 3rem;
+  .services-hero {
+    min-height: 55vh;
+    padding: 6.5rem 5% 4rem 5%;
   }
+
+  .services-hero-title {
+    font-size: 1.65rem;
+  }
+
+  .services-hero-subtitle {
+    font-size: 0.98rem;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
   }
-  .cta-glass-card h2 {
-    font-size: 2.2rem;
+
+  .services-luxury-action-section {
+    padding: 3.5rem 0 4rem 0;
   }
-  .cta-actions {
-    flex-direction: column;
+
+  .services-luxury-action-section .luxury-action-titles h2 {
+    font-size: 1.6rem;
+  }
+
+  .services-luxury-action-section .luxury-action-titles h3 {
+    font-size: 1.85rem;
+  }
+
+  .services-luxury-action-section .luxury-action-dash {
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 576px) {
-  .services-hero-content {
-    padding: 0 25px !important;
+  .services-hero {
+    min-height: 50vh;
+    padding: 6rem 5% 3.5rem 5%;
   }
-  .services-hero-content h1 {
-    font-size: 1.8rem !important;
+
+  .services-hero-tag {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
   }
-  .services-hero-content p {
-    font-size: 0.9rem !important;
-    letter-spacing: 2px !important;
+
+  .services-hero-title {
+    font-size: 1.5rem;
   }
+
+  .services-hero-subtitle {
+    font-size: 0.92rem;
+  }
+
   .service-card-info h3 {
     font-size: 1.3rem !important;
     margin-bottom: 10px !important;
   }
+
   .service-card-info p {
     font-size: 0.85rem !important;
     line-height: 1.6 !important;
     margin-bottom: 20px !important;
   }
+
   .service-card-info {
     padding: 30px 20px 20px !important;
   }
-  .cta-glass-card {
-    padding: 30px 20px !important;
-    border-radius: 20px !important;
+
+  .services-luxury-action-section .luxury-action-title-block {
+    min-width: 100%;
   }
-  .cta-glass-card h2 {
-    font-size: 1.6rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 10px !important;
+
+  .services-luxury-action-section .luxury-action-titles h2 {
+    font-size: 1.35rem;
   }
-  .cta-glass-card p {
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 20px !important;
-  }
-  .cta-actions {
-    flex-direction: row !important;
-    gap: 10px !important;
-  }
-  .cta-actions .btn-premium,
-  .cta-actions .btn-secondary {
-    padding: 12px 10px !important;
-    font-size: 0.8rem !important;
-    border-radius: 30px !important;
-    white-space: nowrap !important;
-    flex: 1 !important;
-    text-align: center !important;
+
+  .services-luxury-action-section .luxury-action-titles h3 {
+    font-size: 1.55rem;
   }
 }

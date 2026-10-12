@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem 5%;
+  padding: 1.2rem 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +13,7 @@
 }
 
 .navbar.scrolled {
-  padding: 0.8rem 5%;
+  padding: 0.7rem 5%;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -40,7 +40,7 @@
 }
 
 .logo img {
-  height: 90px;
+  height: 70px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
@@ -48,22 +48,22 @@
 }
 
 .navbar.scrolled .logo img {
-  height: 80px;
+  height: 60px;
   filter: none;
 }
 
 .nav-menu.desktop {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
 }
 
 .nav-link {
-  font-size: 1.1rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: white;
   /* Default for transparent state */
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   display: flex;
   align-items: center;
   gap: 0.4rem;

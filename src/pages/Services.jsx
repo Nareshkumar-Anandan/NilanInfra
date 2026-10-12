@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Building2, Home as HomeIcon, Hammer, ClipboardList, PenTool, Activity, ArrowRight } from 'lucide-react';
+import { Building2, Home as HomeIcon, Hammer, ClipboardList, Compass, Activity, ArrowRight } from 'lucide-react';
 
 // Importing assets for backgrounds
 import heroImg from '../assets/nilan_hero.png';
 import residentialImg from '../assets/nilan_residential.png';
 import infrastructureImg from '../assets/nilan_infrastructure.png';
 import blueprintImg from '../assets/nilan_blueprint.png';
+import actionNilanImg from '../assets/actionNilan.png';
 import './Services.css';
 
 const Services = () => {
@@ -15,6 +16,17 @@ const Services = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Our Construction Services | Nilan Infra Coimbatore";
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute(
+      'content',
+      'Comprehensive construction and engineering services in Coimbatore by Nilan Infra: Residential villas, commercial buildings, heavy civil infrastructure, and turnkey project management.'
+    );
   }, []);
 
   const handleBooking = () => {
@@ -24,50 +36,50 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      icon: <Building2 size={40} />,
-      title: 'Commercial Construction',
-      subtitle: 'Corporate & Retail Spaces',
-      description: 'Design and construction of premium commercial structures, shopping malls, offices, and retail outlets built with safety, compliance, and structural efficiency.',
-      image: infrastructureImg
-    },
-    {
-      id: 2,
-      icon: <HomeIcon size={40} />,
-      title: 'Residential Villas',
-      subtitle: 'Custom Homes & Apartments',
-      description: 'Creating customized luxury villas, duplex homes, individual bungalows, and multi-family apartments using high-grade materials and structural execution.',
+      icon: <HomeIcon size={24} />,
+      title: 'Residential Construction',
+      subtitle: 'Custom Homes & Luxury Villas',
+      description: 'Creating customized luxury villas, duplex homes, independent houses, and multi-family apartments using high-grade materials and structural execution.',
       image: residentialImg
     },
     {
+      id: 2,
+      icon: <Building2 size={24} />,
+      title: 'Commercial Construction',
+      subtitle: 'Corporate & Retail Spaces',
+      description: 'Design and construction of premium commercial structures, shopping malls, offices, IT hubs, and retail outlets built with safety and efficiency.',
+      image: infrastructureImg
+    },
+    {
       id: 3,
-      icon: <Hammer size={40} />,
-      title: 'Civil & Heavy Engineering',
-      subtitle: 'Infrastructure Projects',
+      icon: <Compass size={24} />,
+      title: 'Property Development',
+      subtitle: 'Layouts & Land Planning',
+      description: 'End-to-end property development, residential layout planning, DTCP and RERA approvals, gated community works, and strategic land development.',
+      image: blueprintImg
+    },
+    {
+      id: 4,
+      icon: <Hammer size={24} />,
+      title: 'Renovation Remodeling',
+      subtitle: 'Restoration & Modernization',
+      description: 'Complete structural renovations, elevation restyling, floor extensions, commercial interior upgrades, and modernization of existing properties.',
+      image: actionNilanImg
+    },
+    {
+      id: 5,
+      icon: <Activity size={24} />,
+      title: 'Civil Infrastructure',
+      subtitle: 'Heavy Engineering Works',
       description: 'Executing specialized concrete works, bridge building, layout development, heavy foundation piling, and urban drainage infrastructure.',
       image: heroImg
     },
     {
-      id: 4,
-      icon: <ClipboardList size={40} />,
-      title: 'Project Management',
-      subtitle: 'Execution & Quality Control',
-      description: 'End-to-end execution support covering budget estimation, material sourcing, daily engineering supervision, safety monitoring, and quality audits.',
-      image: blueprintImg
-    },
-    {
-      id: 5,
-      icon: <PenTool size={40} />,
-      title: 'Interior Architecture',
-      subtitle: 'Aesthetic Space Design',
-      description: 'Premium space layout planning, interior styling, custom modular partitions, cabinetry work, false ceilings, and lighting coordination.',
-      image: residentialImg
-    },
-    {
       id: 6,
-      icon: <Activity size={40} />,
-      title: 'Structural Consulting',
-      subtitle: 'Stability & Layout Analysis',
-      description: 'Comprehensive structural analysis, soil capacity test checks, blueprint reviews, stability certification, and government compliance drawing planning.',
+      icon: <ClipboardList size={24} />,
+      title: 'Projects',
+      subtitle: 'Turnkey Execution & Delivery',
+      description: 'Comprehensive project management covering architectural design, budget estimations, material sourcing, on-site supervision, and timely handover.',
       image: blueprintImg
     }
   ];
@@ -79,51 +91,34 @@ const Services = () => {
       <section className="services-hero">
         <div className="services-hero-bg">
           <img src={heroImg} alt="Nilan Infra Services" />
-          <div className="hero-overlay"></div>
+          <div className="services-hero-overlay"></div>
         </div>
         <div className="services-hero-content">
-          <motion.h4
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            OUR EXPERTISE
-          </motion.h4>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="premium-title"
-          >
-            Services <span>We Provide</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Engineering safety, architectural excellence, and structural durability.
-          </motion.p>
+          <span className="services-hero-tag">Our Expertise</span>
+          <h1 className="services-hero-title">Services We Provide</h1>
+          <p className="services-hero-subtitle">
+            Engineering safety, architectural excellence, and structural durability across every build.
+            From luxury residential villas to commercial spaces and heavy infrastructure, we deliver turnkey construction solutions tailored to your vision.
+          </p>
         </div>
       </section>
 
       {/* Services Detail List */}
-      <section className="services-list section-padding">
+      <section className="services-list">
         <div className="container">
           <div className="services-grid">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
                 className="service-card-premium"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <div className="service-card-image">
                   <img src={service.image} alt={service.title} />
-                  <div className="service-icon-floating">
+                  <div className="service-card-badge">
                     {service.icon}
                   </div>
                 </div>
@@ -132,7 +127,7 @@ const Services = () => {
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <button className="service-link" onClick={handleBooking}>
-                    ENQUIRE NOW <ArrowRight size={16} />
+                    <span>ENQUIRE NOW</span> <ArrowRight size={15} />
                   </button>
                 </div>
               </motion.div>
@@ -141,22 +136,27 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="services-cta section-padding">
+      {/* Call to Action Section - Clean Luxury Split Layout */}
+      <section className="services-luxury-action-section">
         <div className="container">
-          <motion.div
-            className="cta-glass-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>Ready to Plan Your <span>Next Project?</span></h2>
-            <p>From architectural blueprints to quality execution, Nilan Infra is here to build it right.</p>
-            <div className="cta-actions">
-              <button className="btn-premium" onClick={handleBooking}>GET A FREE QUOTE</button>
-              <button className="btn-secondary" onClick={() => navigate('/contact')}>CONTACT US</button>
+          <div className="luxury-action-container">
+            <div className="luxury-action-title-block">
+              <span className="luxury-action-dash">—</span>
+              <div className="luxury-action-titles">
+                <h2>READY TO TALK.</h2>
+                <h3>ABOUT YOUR PLAN?</h3>
+              </div>
             </div>
-          </motion.div>
+            <div className="luxury-action-content-block">
+              <p>
+                Talk to our team about your home, shop, renovation or property development plan. We bring the same care to every job: clear planning, honest talk and close attention to small details.
+              </p>
+              <Link to="/contact" className="luxury-action-link">
+                <span>REQUEST A QUOTE</span>
+                <span className="action-arrow">&gt;</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

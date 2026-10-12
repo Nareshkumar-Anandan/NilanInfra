@@ -1,27 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Building2, 
-  Home as HomeIcon, 
-  Layers, 
-  Wrench, 
-  Truck, 
-  CheckCircle2, 
-  Target, 
-  Compass, 
-  PhoneCall, 
-  ArrowRight,
-  ShieldCheck,
-  HeartHandshake,
-  Lightbulb,
-  Eye,
-  Clock,
-  Sparkles,
-  Paintbrush
+import {
+  CheckCircle2,
+  Target,
+  Compass,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import aboutHero from '../assets/nilan_hero.png';
 import residentialImg from '../assets/nilan_residential.png';
 import blueprintImg from '../assets/nilan_blueprint.png';
+import infraImg from '../assets/nilan_infrastructure.png';
+import actionNilanImg from '../assets/actionNilan.png';
+import shanmugamLogo from '../assets/logo/Shanmugam.webp';
+import skyraLogo from '../assets/logo/SkyraInfra.PNG';
+import nilanLogo from '../assets/nilan.png';
 import './About.css';
 
 const About = () => {
@@ -58,89 +51,83 @@ const About = () => {
     }
   ];
 
-  const whatWeDo = [
+  const showcaseSlides = [
     {
-      title: 'House Building',
-      desc: 'Houses, villas, apartments and new homes.',
-      icon: <HomeIcon size={26} />
+      id: 1,
+      tagline: 'WHAT WE DO',
+      titleLine1: 'HOUSE',
+      titleLine2: 'BUILDING',
+      titleItalic: 'EXCELLENCE',
+      desc: 'Custom-crafted houses, modern luxury villas, duplexes, and residential apartments engineered with high-grade materials, seismic safety, and timeless architecture in Coimbatore.',
+      image: residentialImg,
+      alt: 'House Building and Luxury Villas'
     },
     {
-      title: 'Commercial Building',
-      desc: 'Offices, shops, showrooms, commercial complexes and business centres.',
-      icon: <Building2 size={26} />
+      id: 2,
+      tagline: 'WHAT WE DO',
+      titleLine1: 'COMMERCIAL',
+      titleLine2: 'BUILDING',
+      titleItalic: 'PROJECTS',
+      desc: 'State-of-the-art office spaces, commercial complexes, retail showrooms, and institutional buildings built on schedule with full regulatory compliance and premium finishes.',
+      image: aboutHero,
+      alt: 'Commercial Building and Business Complexes'
     },
     {
-      title: 'Property Development',
-      desc: 'Housing layouts, villa communities, apartments, and land development.',
-      icon: <Layers size={26} />
+      id: 3,
+      tagline: 'WHAT WE DO',
+      titleLine1: 'PROPERTY',
+      titleLine2: 'DEVELOPMENT',
+      titleItalic: '& LAYOUTS',
+      desc: 'End-to-end land development, gated villa communities, residential plots, and layout infrastructure with clear documentation and modern amenities.',
+      image: blueprintImg,
+      alt: 'Property Development and Land Layouts'
     },
     {
-      title: 'Renovation',
-      desc: 'Repair and upgrade of houses, villas and offices, including floors and painting.',
-      icon: <Wrench size={26} />
+      id: 4,
+      tagline: 'WHAT WE DO',
+      titleLine1: 'RENOVATION',
+      titleLine2: 'REMODELING',
+      titleItalic: '& FINISHES',
+      desc: 'Complete restoration and structural remodeling of houses, villas, and commercial properties — including structural retrofitting, modern flooring, and premium painting with Shanmugam Associates.',
+      image: actionNilanImg,
+      alt: 'Renovation and Remodeling Services'
     },
     {
-      title: 'Civil Work',
-      desc: 'Land preparation, foundations, concrete work, drains and roads.',
-      icon: <Truck size={26} />
+      id: 5,
+      tagline: 'WHAT WE DO',
+      titleLine1: 'CIVIL WORK',
+      titleLine2: '& HEAVY',
+      titleItalic: 'INFRASTRUCTURE',
+      desc: 'Heavy foundation engineering, land levelling, concrete paving, drainage networks, compound structures, and industrial civil contracts executed with precision machinery.',
+      image: infraImg,
+      alt: 'Civil and Infrastructure Engineering'
     }
   ];
 
-  const howWeWorkSteps = [
-    {
-      step: 'Step 1',
-      title: 'Understand you',
-      desc: 'We learn what you want and how your site is, before we suggest anything.'
-    },
-    {
-      step: 'Step 2',
-      title: 'Plan',
-      desc: 'We study the work, the site, the materials and the time. Problems are solved on paper, not on site.'
-    },
-    {
-      step: 'Step 3',
-      title: 'Build',
-      desc: 'We do the structure, civil work and finishing in the right order.'
-    },
-    {
-      step: 'Step 4',
-      title: 'Check quality',
-      desc: 'We check the materials, the work, the strength, the finish and the safety all through the job.'
-    },
-    {
-      step: 'Step 5',
-      title: 'Hand over',
-      desc: 'We check every project against what we agreed, and then give it to you.'
-    }
-  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const values = [
-    {
-      name: 'Quality',
-      desc: 'Good building starts with good planning, good materials and good workers.',
-      icon: <ShieldCheck size={24} />
-    },
-    {
-      name: 'Honesty',
-      desc: 'We tell you the truth about work, cost and problems.',
-      icon: <CheckCircle2 size={24} />
-    },
-    {
-      name: 'Responsibility',
-      desc: "People's homes, business and savings depend on us. We take care.",
-      icon: <HeartHandshake size={24} />
-    },
-    {
-      name: 'New ideas',
-      desc: 'We use better ways and tools when they give better results.',
-      icon: <Lightbulb size={24} />
-    },
-    {
-      name: 'Client first',
-      desc: 'We listen first. Then we suggest.',
-      icon: <Sparkles size={24} />
-    }
-  ];
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? showcaseSlides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === showcaseSlides.length - 1 ? 0 : prev + 1));
+  };
+
+  // Auto scroll timer (pauses when mouse is hovering the section)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === showcaseSlides.length - 1 ? 0 : prev + 1));
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, [showcaseSlides.length, currentSlide, isPaused]);
+
+
+
 
   const whyChooseList = [
     'Part of the Shanmugam Group, with Nilan Infra as its own construction company.',
@@ -152,12 +139,9 @@ const About = () => {
   ];
 
   const missionPoints = [
-    'Give good quality construction',
-    'Give useful ideas for design',
-    'Do the work reliably',
-    'Speak openly and honestly',
-    'Build with care for people and place',
-    'Create lasting value for our clients'
+    'Give good quality construction, Give useful ideas for design',
+    'Do the work reliably, Speak openly and honestly',
+    'Build with care for people and place, Create lasting value for our clients'
   ];
 
   return (
@@ -231,8 +215,8 @@ const About = () => {
             <div className="org-children-grid">
               {/* Card 1: Shanmugam Associates */}
               <div className="org-child-card side-company">
-                <div className="org-card-icon-wrap orange-icon-bg">
-                  <Paintbrush size={26} className="org-icon-graphic" />
+                <div className="org-card-logo-wrap">
+                  <img src={shanmugamLogo} alt="Shanmugam Associates Logo" className="org-company-logo" />
                 </div>
                 <h3>Shanmugam Associates</h3>
                 <p>Painting-related services</p>
@@ -240,8 +224,8 @@ const About = () => {
 
               {/* Card 2: Nilan Infra Ltd (Highlighted in Orange) */}
               <div className="org-child-card highlighted-company">
-                <div className="org-card-icon-wrap white-icon-bg">
-                  <HomeIcon size={26} className="org-icon-graphic-orange" />
+                <div className="org-card-logo-wrap">
+                  <img src={nilanLogo} alt="Nilan Infra Ltd Logo" className="org-company-logo" />
                 </div>
                 <h3>Nilan Infra Ltd</h3>
                 <p>Construction and property development</p>
@@ -249,8 +233,8 @@ const About = () => {
 
               {/* Card 3: Skyraa Infra */}
               <div className="org-child-card side-company">
-                <div className="org-card-icon-wrap orange-icon-bg">
-                  <Building2 size={26} className="org-icon-graphic" />
+                <div className="org-card-logo-wrap">
+                  <img src={skyraLogo} alt="Skyraa Infra Logo" className="org-company-logo" />
                 </div>
                 <h3>Skyraa Infra</h3>
                 <p>Group company</p>
@@ -265,102 +249,148 @@ const About = () => {
         </div>
       </section>
 
-      {/* What We Do Section */}
-      <section className="about-section about-what-we-do-section">
-        <div className="container">
-          <div className="about-section-header">
-            <span className="about-section-eyebrow">OUR CAPABILITIES</span>
-            <h2 className="about-section-heading">What We Do</h2>
-            <p className="about-section-subtext">
-              Comprehensive construction and development services tailored to residential and commercial needs.
-            </p>
-          </div>
+      {/* What We Do - Full-Width Interactive Luxury Showcase Carousel */}
+      <section
+        className="about-showcase-section full-bleed"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Left Navigation Arrow Button */}
+        <button
+          onClick={prevSlide}
+          className="showcase-nav-btn showcase-prev-btn"
+          aria-label="Previous service"
+          type="button"
+        >
+          <ChevronLeft size={28} />
+        </button>
 
-          <div className="what-we-do-grid">
-            {whatWeDo.map((item, idx) => (
-              <div key={idx} className="what-we-do-card">
-                <div className="what-card-icon">{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* Right Navigation Arrow Button */}
+        <button
+          onClick={nextSlide}
+          className="showcase-nav-btn showcase-next-btn"
+          aria-label="Next service"
+          type="button"
+        >
+          <ChevronRight size={28} />
+        </button>
 
-      {/* How We Work Section */}
-      <section className="about-section about-process-section">
-        <div className="container">
-          <div className="about-section-header">
-            <span className="about-section-eyebrow">OUR PROCESS</span>
-            <h2 className="about-section-heading">How We Work</h2>
-            <p className="about-section-subtext">
-              From the initial idea to the final handover, we follow a disciplined, 5-step process.
-            </p>
-          </div>
-
-          <div className="process-steps-grid">
-            {howWeWorkSteps.map((item, idx) => (
-              <div key={idx} className="process-step-card">
-                <div className="step-badge">{item.step}</div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Values Section */}
-      <section className="about-section about-values-section">
-        <div className="container">
-          <div className="about-section-header">
-            <span className="about-section-eyebrow">OUR PRINCIPLES</span>
-            <h2 className="about-section-heading">Our Values</h2>
-            <p className="about-section-subtext">
-              The core principles that guide our work, our decisions, and our client relationships every day.
-            </p>
-          </div>
-
-          <div className="values-cards-grid">
-            {values.map((val, idx) => (
-              <div key={idx} className="value-card">
-                <div className="value-icon">{val.icon}</div>
-                <h3>{val.name}</h3>
-                <p>{val.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Nilan Infra Section */}
-      <section className="about-section about-why-section">
-        <div className="container">
-          <div className="about-split-layout reverse-mobile">
-            <div className="about-split-image">
-              <div className="about-image-card">
-                <img src={blueprintImg} alt="Planning and Architecture" />
+        <div className="about-showcase-wrapper">
+          {/* Left Dark Column */}
+          <div className="showcase-dark-panel">
+            <div className="showcase-content-box" key={`content-${currentSlide}`}>
+              <span className="showcase-eyebrow">{showcaseSlides[currentSlide].tagline}</span>
+              <h2 className="showcase-title">
+                {showcaseSlides[currentSlide].titleLine1}<br />
+                {showcaseSlides[currentSlide].titleLine2}<br />
+                <span className="showcase-title-italic">{showcaseSlides[currentSlide].titleItalic}</span>
+              </h2>
+              <p className="showcase-desc">
+                {showcaseSlides[currentSlide].desc}
+              </p>
+              <div className="showcase-action-row">
+                <Link to="/services" className="showcase-pill-btn">
+                  LEARN MORE
+                </Link>
               </div>
             </div>
-            <div className="about-split-text">
-              <span className="about-section-eyebrow">WHY US</span>
-              <h2 className="about-section-heading">Why choose Nilan Infra</h2>
-              <ul className="why-checklist">
-                {whyChooseList.map((point, idx) => (
-                  <li key={idx}>
-                    <CheckCircle2 size={20} className="check-icon" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+          </div>
 
-              <div className="relationship-callout">
-                <h4>We build relationships, not only buildings</h4>
-                <p>
-                  A good project is a team effort between you, your advisers and our site team. Good building needs good talk. We want to stay in touch with you even after we hand over.
-                </p>
+          {/* Overlapping Center Image Card (Clickable to Next Slide) */}
+          <div
+            className="showcase-center-card"
+            onClick={nextSlide}
+            title="Click for next capability"
+            key={`center-${currentSlide}`}
+          >
+            <img
+              src={showcaseSlides[currentSlide].image}
+              alt={showcaseSlides[currentSlide].alt}
+              className="showcase-card-img"
+            />
+            <div className="center-card-badge">
+              <span>{showcaseSlides[currentSlide].titleLine1} {showcaseSlides[currentSlide].titleLine2}</span>
+            </div>
+          </div>
+
+          {/* Bottom Center Dots Indicator */}
+          <div className="showcase-center-dots">
+            {showcaseSlides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentSlide(idx);
+                }}
+                className={`showcase-dot ${currentSlide === idx ? 'active' : ''}`}
+                aria-label={`Go to slide ${idx + 1}`}
+                type="button"
+              />
+            ))}
+          </div>
+
+          {/* Right Background Architectural Image (Shows Next Slide - Clickable to Bring into Center) */}
+          <div
+            className="showcase-image-panel"
+            onClick={nextSlide}
+            title="Click to view next capability"
+            key={`bg-${currentSlide}`}
+          >
+            <img
+              src={showcaseSlides[(currentSlide + 1) % showcaseSlides.length].image}
+              alt={showcaseSlides[(currentSlide + 1) % showcaseSlides.length].alt}
+              className="showcase-bg-img"
+            />
+            <div className="showcase-bg-overlay"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Nilan Infra Section - Luxury Editorial Split */}
+      <section className="about-section about-why-section">
+        <div className="why-luxury-split-layout">
+          {/* Left Luxury Image Card */}
+          <div className="why-luxury-image-col">
+            <div className="why-luxury-image-card">
+              <img src={blueprintImg} alt="Why Choose Nilan Infra Construction Excellence" className="why-luxury-img" />
+
+              {/* Bottom-Right Association Tag */}
+              <div className="why-luxury-assoc-tag">
+                <span>in association with <strong>SHANMUGAM GROUP</strong></span>
               </div>
+            </div>
+          </div>
+
+          {/* Right Editorial Typography & Content */}
+          <div className="why-luxury-text-col">
+            <span className="why-luxury-eyebrow">WHY US</span>
+            <h2 className="why-luxury-title">WHY CHOOSE NILAN INFRA</h2>
+            
+            <p className="why-luxury-lead">
+              Delivering end-to-end construction excellence, precision architectural engineering, and enduring value across residential, commercial, and infrastructure developments in Coimbatore.
+            </p>
+
+            <ul className="why-luxury-checklist">
+              {whyChooseList.map((point, idx) => (
+                <li key={idx}>
+                  <CheckCircle2 size={15} className="why-luxury-check-icon" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="why-luxury-callout">
+              <h4>WE BUILD RELATIONSHIPS, NOT ONLY BUILDINGS</h4>
+              <p>
+                A good project is a team effort between you, your advisers and our site team. Good building needs transparent communication. We stay dedicated to your vision even long after handover.
+              </p>
+            </div>
+
+            <div className="why-luxury-action-row">
+              <Link to="/services" className="why-luxury-action-link">
+                <span>EXPLORE OUR SERVICES</span>
+                <ChevronRight size={15} className="action-arrow-icon" />
+              </Link>
             </div>
           </div>
         </div>
@@ -371,26 +401,34 @@ const About = () => {
         <div className="container">
           <div className="vision-mission-grid">
             <div className="vision-card">
-              <div className="vision-icon">
-                <Compass size={32} />
+              <div className="card-header-row">
+                <div className="vision-icon">
+                  <Compass size={24} />
+                </div>
+                <div className="card-title-group">
+                  <span className="card-tagline">LOOKING AHEAD</span>
+                  <h2>Our Vision</h2>
+                </div>
               </div>
-              <span className="card-tagline">LOOKING AHEAD</span>
-              <h2>Our Vision</h2>
               <p>
                 To be one of the most trusted construction and property development companies in Coimbatore and Tamil Nadu. We want to be known for careful planning, skilled work and good service to customers.
               </p>
             </div>
 
             <div className="mission-card">
-              <div className="mission-icon">
-                <Target size={32} />
+              <div className="card-header-row">
+                <div className="mission-icon">
+                  <Target size={24} />
+                </div>
+                <div className="card-title-group">
+                  <span className="card-tagline">OUR COMMITMENT</span>
+                  <h2>Our Mission</h2>
+                </div>
               </div>
-              <span className="card-tagline">OUR COMMITMENT</span>
-              <h2>Our Mission</h2>
               <ul className="mission-list">
                 {missionPoints.map((point, idx) => (
                   <li key={idx}>
-                    <CheckCircle2 size={18} className="mission-check-icon" />
+                    <CheckCircle2 size={15} className="mission-check-icon" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -400,22 +438,25 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="about-cta-section">
+      {/* Call to Action Section - Clean Luxury Split Layout */}
+      <section className="about-luxury-action-section">
         <div className="container">
-          <div className="about-cta-box">
-            <span className="cta-tagline">LET US BUILD SOMETHING GOOD TOGETHER</span>
-            <h2>Ready to talk about your plan?</h2>
-            <p>
-              Talk to our team about your home, shop, renovation or property development plan.
-            </p>
-            <div className="about-cta-buttons">
-              <Link to="/contact" className="about-btn-primary">
-                Contact Nilan Infra <ArrowRight size={18} />
+          <div className="luxury-action-container">
+            <div className="luxury-action-title-block">
+              <span className="luxury-action-dash">—</span>
+              <div className="luxury-action-titles">
+                <h2>READY TO TALK.</h2>
+                <h3>ABOUT YOUR PLAN?</h3>
+              </div>
+            </div>
+            <div className="luxury-action-content-block">
+              <p>
+                Talk to our team about your home, shop, renovation or property development plan. We bring the same care to every job: clear planning, honest talk and close attention to small details.
+              </p>
+              <Link to="/contact" className="luxury-action-link">
+                <span>REQUEST A QUOTE</span>
+                <span className="action-arrow">&gt;</span>
               </Link>
-              <a href="tel:+919443522285" className="about-btn-phone">
-                <PhoneCall size={18} /> +91 94435 22285
-              </a>
             </div>
           </div>
         </div>

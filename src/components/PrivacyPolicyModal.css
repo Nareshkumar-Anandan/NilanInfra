@@ -1,0 +1,472 @@
+/* A4 Sheet Privacy Policy Popup Modal Styles */
+
+.a4-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.a4-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 12, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+/* Floating Close Button */
+.a4-modal-close-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.a4-modal-close-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.05);
+}
+
+/* Scroll area around the A4 paper */
+.a4-modal-scroll {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem 4rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar for A4 modal */
+.a4-modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.a4-modal-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+.a4-modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+/* ==========================================================
+   A4 Paper Sheet
+   Dimensions: 210mm x 297mm standard aspect ratio
+   Digital representation: Max-width 794px, Min-height 1123px
+   ========================================================== */
+.a4-paper-sheet {
+  position: relative;
+  width: 100%;
+  max-width: 794px;
+  min-height: 1100px;
+  background: #ffffff;
+  color: #1f2937;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  padding: 55px 65px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-family: var(--font-main, 'Poppins', sans-serif);
+  line-height: 1.65;
+  overflow: hidden;
+}
+
+/* Decorative Watermark on the paper */
+.a4-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: rgba(234, 88, 12, 0.035);
+  letter-spacing: 12px;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+/* Header & Letterhead */
+.a4-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+}
+
+.a4-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.2rem;
+}
+
+.a4-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.a4-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.a4-company-name {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.a4-company-tagline {
+  font-size: 0.76rem;
+  color: var(--primary, #ea580c);
+  margin-top: 3px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.a4-reg-info {
+  text-align: right;
+  font-size: 0.74rem;
+  color: #6b7280;
+  line-height: 1.45;
+}
+
+.a4-reg-info strong {
+  color: #374151;
+}
+
+.a4-letterhead-rule {
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary, #ea580c) 0%, #fb923c 50%, #111827 100%);
+  border-radius: 2px;
+}
+
+/* Title Block */
+.a4-title-block {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1.2rem 0;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.a4-doc-title {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.a4-effective-date {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Intro statement */
+.a4-intro-statement {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.6rem;
+  background: #fafaf9;
+  border-left: 3.5px solid var(--primary, #ea580c);
+  padding: 1rem 1.3rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.a4-intro-statement p {
+  font-size: 0.96rem;
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Body Content Sections */
+.a4-body-content {
+  position: relative;
+  z-index: 2;
+}
+
+.a4-policy-section {
+  margin-bottom: 1.5rem;
+}
+
+.a4-section-heading {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+}
+
+.a4-sec-num {
+  color: var(--primary, #ea580c);
+  font-weight: 800;
+}
+
+.a4-policy-section p {
+  font-size: 0.91rem;
+  color: #4b5563;
+  line-height: 1.65;
+  margin-bottom: 0.5rem;
+}
+
+.a4-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.a4-list li {
+  font-size: 0.91rem;
+  color: #4b5563;
+  padding-left: 1.4rem;
+  position: relative;
+  line-height: 1.55;
+}
+
+.a4-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0.4rem;
+  color: var(--primary, #ea580c);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1;
+  top: 1px;
+}
+
+/* Contact Box on A4 */
+.a4-contact-box {
+  background: #fafaf9;
+  border: 1px solid #e7e5e4;
+  border-radius: 8px;
+  padding: 1.1rem 1.4rem;
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.a4-box-company {
+  font-family: var(--font-heading, 'Cinzel', serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #1c1917;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+}
+
+.a4-box-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #57534e;
+  margin: 0 !important;
+}
+
+.a4-box-line svg {
+  color: var(--primary, #ea580c);
+  flex-shrink: 0;
+}
+
+.a4-box-line a {
+  color: var(--primary, #ea580c);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.a4-box-line a:hover {
+  color: #c2410c;
+}
+
+/* A4 Footer */
+.a4-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 2.2rem;
+  padding-top: 1.2rem;
+}
+
+.a4-footer-rule {
+  height: 1px;
+  background: #e5e7eb;
+  margin-bottom: 0.9rem;
+}
+
+.a4-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.a4-footer-company {
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.a4-footer-sub {
+  color: #9ca3af;
+  font-size: 0.72rem;
+}
+
+.a4-page-num {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.a4-security-badge {
+  color: var(--primary, #ea580c);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================
+   Print Styles: Formatted for direct printing on real A4 paper
+   ========================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .a4-modal-overlay,
+  .a4-modal-scroll,
+  .a4-paper-sheet,
+  .a4-paper-sheet * {
+    visibility: visible;
+  }
+  .a4-modal-overlay {
+    position: static;
+    background: none;
+    overflow: visible;
+  }
+  .a4-modal-backdrop,
+  .a4-modal-toolbar {
+    display: none !important;
+  }
+  .a4-modal-scroll {
+    overflow: visible;
+    padding: 0;
+    height: auto;
+  }
+  .a4-paper-sheet {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 20mm;
+    border-radius: 0;
+  }
+}
+
+/* ==========================================================
+   Responsive adjustments for small screens
+   ========================================================== */
+@media (max-width: 768px) {
+  .a4-paper-sheet {
+    padding: 35px 25px;
+    min-height: auto;
+  }
+
+  .a4-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .a4-reg-info {
+    text-align: left;
+  }
+
+  .a4-doc-title {
+    font-size: 1.35rem;
+  }
+
+  .a4-footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .a4-page-num {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .a4-paper-sheet {
+    padding: 25px 18px;
+  }
+
+  .a4-modal-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
+  }
+}

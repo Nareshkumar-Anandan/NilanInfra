@@ -6,7 +6,7 @@ import './FloatingContact.css';
 const FloatingContact = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const phoneNumber = "919159666679"; // Nilan Infra primary contact
+  const phoneNumber = "919443522285"; // Nilan Infra primary contact
 
   const toggleOpen = () => setIsOpen(!isOpen);
 

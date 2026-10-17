@@ -40,7 +40,8 @@ const Services = () => {
       title: 'Residential Construction',
       subtitle: 'Custom Homes & Luxury Villas',
       description: 'Creating customized luxury villas, duplex homes, independent houses, and multi-family apartments using high-grade materials and structural execution.',
-      image: residentialImg
+      image: residentialImg,
+      path: '/residential-construction'
     },
     {
       id: 2,
@@ -48,7 +49,8 @@ const Services = () => {
       title: 'Commercial Construction',
       subtitle: 'Corporate & Retail Spaces',
       description: 'Design and construction of premium commercial structures, shopping malls, offices, IT hubs, and retail outlets built with safety and efficiency.',
-      image: infrastructureImg
+      image: infrastructureImg,
+      path: '/commercial-construction'
     },
     {
       id: 3,
@@ -56,7 +58,8 @@ const Services = () => {
       title: 'Property Development',
       subtitle: 'Layouts & Land Planning',
       description: 'End-to-end property development, residential layout planning, DTCP and RERA approvals, gated community works, and strategic land development.',
-      image: blueprintImg
+      image: blueprintImg,
+      path: '/property-development'
     },
     {
       id: 4,
@@ -64,7 +67,8 @@ const Services = () => {
       title: 'Renovation Remodeling',
       subtitle: 'Restoration & Modernization',
       description: 'Complete structural renovations, elevation restyling, floor extensions, commercial interior upgrades, and modernization of existing properties.',
-      image: actionNilanImg
+      image: actionNilanImg,
+      path: '/renovation-remodeling'
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ const Services = () => {
       title: 'Civil Infrastructure',
       subtitle: 'Heavy Engineering Works',
       description: 'Executing specialized concrete works, bridge building, layout development, heavy foundation piling, and urban drainage infrastructure.',
-      image: heroImg
+      image: heroImg,
+      path: '/civil-infrastructure'
     },
     {
       id: 6,
@@ -80,7 +85,8 @@ const Services = () => {
       title: 'Projects',
       subtitle: 'Turnkey Execution & Delivery',
       description: 'Comprehensive project management covering architectural design, budget estimations, material sourcing, on-site supervision, and timely handover.',
-      image: blueprintImg
+      image: blueprintImg,
+      path: '/projects'
     }
   ];
 
@@ -110,25 +116,26 @@ const Services = () => {
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
-                className="service-card-premium"
+                className="service-card-minimal"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <div className="service-card-image">
+                <div className="service-card-image" onClick={() => navigate(service.path)}>
                   <img src={service.image} alt={service.title} />
-                  <div className="service-card-badge">
-                    {service.icon}
-                  </div>
                 </div>
                 <div className="service-card-info">
-                  <span className="service-subtitle">{service.subtitle}</span>
-                  <h3>{service.title}</h3>
+                  <h3 onClick={() => navigate(service.path)}>{service.title}</h3>
                   <p>{service.description}</p>
-                  <button className="service-link" onClick={handleBooking}>
-                    <span>ENQUIRE NOW</span> <ArrowRight size={15} />
-                  </button>
+                  <div className="service-card-actions">
+                    <button className="service-btn-enquire" onClick={handleBooking}>
+                      ENQUIRE NOW
+                    </button>
+                    <Link to={service.path} className="service-link-readmore">
+                      <span>READ MORE</span> <span className="arrow">&gt;</span>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}

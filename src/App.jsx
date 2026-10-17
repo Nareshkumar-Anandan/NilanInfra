@@ -6,6 +6,13 @@ import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import ResidentialConstruction from './pages/ResidentialConstruction';
+import CommercialConstruction from './pages/CommercialConstruction';
+import PropertyDevelopment from './pages/PropertyDevelopment';
+import RenovationRemodeling from './pages/RenovationRemodeling';
+import CivilInfrastructure from './pages/CivilInfrastructure';
+import Projects from './pages/Projects';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import FloatingContact from './components/FloatingContact';
 import Footer from './components/Footer';
 
@@ -22,6 +29,15 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+
+        {/* Dedicated Service & Project Detail Pages */}
+        <Route path="/residential-construction" element={<ResidentialConstruction />} />
+        <Route path="/commercial-construction" element={<CommercialConstruction />} />
+        <Route path="/property-development" element={<PropertyDevelopment />} />
+        <Route path="/renovation-remodeling" element={<RenovationRemodeling />} />
+        <Route path="/civil-infrastructure" element={<CivilInfrastructure />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         
         {/* Fallback to home */}
         <Route path="*" element={<Navigate to="/" />} />

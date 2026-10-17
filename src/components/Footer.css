@@ -154,14 +154,25 @@
   gap: 2rem;
 }
 
-.footer-legal a {
-  color: rgba(255, 255, 255, 0.3);
+.footer-legal a,
+.footer-legal-btn {
+  color: rgba(255, 255, 255, 0.45);
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
-.footer-legal a:hover {
-  color: var(--primary);
+.footer-legal a:hover,
+.footer-legal-btn:hover {
+  color: var(--primary, #ea580c);
+  text-decoration: underline;
 }
 
 @media (max-width: 1200px) {

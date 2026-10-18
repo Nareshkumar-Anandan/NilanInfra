@@ -188,19 +188,19 @@
 }
 
 .btn-premium {
-  padding: 20px 25px;
+  padding: 12px 24px;
   background: var(--primary);
   color: white;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  width: 200px;
+  width: auto;
   justify-content: center;
   white-space: nowrap;
 }

@@ -22,7 +22,8 @@ const Navbar = () => {
     { name: 'ABOUT', path: '/about' },
     { name: 'GALLERY', path: '/gallery' },
     { name: 'SERVICES', path: '/services' },
-    { name: 'CONTACT', path: '/contact' },
+    { name: 'BLOG', path: '/blog' },
+    // { name: 'CONTACT', path: '/contact' },
   ];
 
   const isHome = location.pathname === '/';

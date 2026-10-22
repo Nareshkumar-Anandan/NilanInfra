@@ -28,7 +28,7 @@ const Contact = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const contactDetails = {
-    address: 'Nilan Infra Ltd, No. 62, Aringar Anna Co-operative Society Nagar, Vadavalli, Sri Lakshmi Nagar, Coimbatore – 641046, Tamil Nadu, India',
+    address: 'No.5,Mariyamman Kovil Street, Vadavalli, Coimbatore-641 046, Tamil Nadu.',
     gstin: '33AVHPN1794J2Z8',
     phone: '+91 94435 22285',
     phoneRaw: '+919443522285',

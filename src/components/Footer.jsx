@@ -57,7 +57,8 @@ const Footer = () => {
           <div className="footer-section contact">
             <h3>Contact Us</h3>
             <div className="contact-info">
-              <p><MapPin size={18} /> No. 62, Aringar Anna Co-operative Society Nagar, Vadavalli, Sri Lakshmi Nagar, Coimbatore – 641046, Tamil Nadu.</p>
+              <p><MapPin size={18} /> No.5,Mariyamman Kovil Street,
+Vadavalli, Coimbatore-641 046, Tamil Nadu.</p>
               <p><Phone size={18} /> <a href="tel:+919443522285">+91 94435 22285</a></p>
               <p><Mail size={18} /> <a href="mailto:nilan.infralimited@gmail.com">nilan.infralimited@gmail.com</a></p>
             </div>
